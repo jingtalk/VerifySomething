@@ -33,8 +33,8 @@ public class Son extends Father {
 
     }
 
-    public void doCoolSomething(String something) {
-        Log.d(TAG, "doSomething=" + something);
+    public void doCoolSomething(String something, int what) {
+        Log.d(TAG, "doSomething=" + something + ", what=" + what);
     }
 
     private String getCoolSomething() {
