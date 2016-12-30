@@ -1,1 +1,1 @@
-include ':app', ':reflecttest', ':proxytest'
+include ':app', ':reflecttest', ':proxytest', ':hooktest'
