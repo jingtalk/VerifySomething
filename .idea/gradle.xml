@@ -9,8 +9,11 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/classloader-hook" />
             <option value="$PROJECT_DIR$/hooktest" />
+            <option value="$PROJECT_DIR$/intercept-activity" />
             <option value="$PROJECT_DIR$/proxytest" />
+            <option value="$PROJECT_DIR$/receiver-management" />
             <option value="$PROJECT_DIR$/reflecttest" />
           </set>
         </option>
