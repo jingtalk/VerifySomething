@@ -1,1 +1,1 @@
-include ':app', ':reflecttest', ':proxytest', ':hooktest', ':receiver-management', ':classloader-hook', ':intercept-activity'
+include ':app', ':reflecttest', ':proxytest', ':hooktest', ':receiver-management', ':classloader-hook', ':intercept-activity', ':service-management', ':contentprovider-management'
