@@ -10,12 +10,14 @@ import android.os.Message;
  * @author weishu
  * @date 16/1/7
  */
-/* package */ class ActivityThreadHandlerCallback implements Handler.Callback {
+/* package */
 
-    Handler mBase;
+class ActivityThreadHandlerCallback implements Handler.Callback {
 
-    public ActivityThreadHandlerCallback(Handler base) {
-        mBase = base;
+    Handler mProxy;
+
+    public ActivityThreadHandlerCallback(Handler body) {
+        mProxy = body;
     }
 
     @Override
@@ -29,7 +31,7 @@ import android.os.Message;
                 break;
         }
 
-        mBase.handleMessage(msg);
+        mProxy.handleMessage(msg);
         return true;
     }
 

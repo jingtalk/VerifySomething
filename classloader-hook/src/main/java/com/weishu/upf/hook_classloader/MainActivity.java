@@ -56,6 +56,10 @@ public class MainActivity extends Activity {
                 }
             }
         });
+
+        Intent intent = new Intent(MainActivity.this, StubActivity.class);
+        startActivity(intent);
+        startActivityForResult(intent, 0);
     }
 
     @Override

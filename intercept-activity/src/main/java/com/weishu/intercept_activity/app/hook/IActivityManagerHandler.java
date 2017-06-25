@@ -7,22 +7,26 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.util.Log;
 
-import com.weishu.intercept_activity.app.StubActivity;
+import com.weishu.intercept_activity.app.ProxyActivity;
 
 /**
  * @author weishu
  * @dete 16/1/7.
  */
-/* package */ class IActivityManagerHandler implements InvocationHandler {
+/* package */
+class IActivityManagerHandler implements InvocationHandler {
 
     private static final String TAG = "IActivityManagerHandler";
 
-    Object mBase;
+    // 定义一个代理对象
+    Object mProxy;
 
-    public IActivityManagerHandler(Object base) {
-        mBase = base;
+    // 保存真身
+    public IActivityManagerHandler(Object body) {
+        mProxy = body;
     }
 
+    // 选择需要代理重写的方法
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
@@ -52,8 +56,8 @@ import com.weishu.intercept_activity.app.StubActivity;
             // 替身Activity的包名, 也就是我们自己的包名
             String stubPackage = "com.weishu.intercept_activity.app";
 
-            // 这里我们把启动的Activity临时替换为 StubActivity
-            ComponentName componentName = new ComponentName(stubPackage, StubActivity.class.getName());
+            // 这里我们把启动的Activity临时替换为 ProxyActivity
+            ComponentName componentName = new ComponentName(stubPackage, ProxyActivity.class.getName());
             newIntent.setComponent(componentName);
 
             // 把我们原始要启动的TargetActivity先存起来
@@ -63,10 +67,10 @@ import com.weishu.intercept_activity.app.StubActivity;
             args[index] = newIntent;
 
             Log.d(TAG, "hook success");
-            return method.invoke(mBase, args);
+            return method.invoke(mProxy, args);
 
         }
 
-        return method.invoke(mBase, args);
+        return method.invoke(mProxy, args);
     }
 }

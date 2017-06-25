@@ -19,6 +19,6 @@ import android.app.Activity;
  * 这样我们就成为了一个真正的Activity, 生命周期由系统管理!
  * Created by weishu on 16/1/7.
  */
-public class StubActivity extends Activity {
+public class ProxyActivity extends Activity {
     // dummy, just stub
 }
